@@ -2,8 +2,6 @@
 
 
 void printDecorations(){
-  puts( "------------------------------ 装飾 ------------------------------" );
-
   int nums[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 21, 53 };
   int nums_len = sizeof( nums ) / sizeof( int );
   char* descriptions[] = {
@@ -36,7 +34,6 @@ void printDecorations(){
 
 
 void printBasicColors(){
-  puts( "------------------------------ 色 ------------------------------" );
   puts( "【基本色】" );
 
   printf( "     " );
@@ -80,12 +77,14 @@ void print256Colors(){
 
   for( int i = 0; i < 256; i++ ){
     char* s = (( i < 10 ) ? "  " : (( i < 100 ) ? " " : "" ));
-    if( !( i % 10 ) ){
+    int r = ( i % 10 );
+
+    if( !r ){
       printf( "%d%s: ", i, s );
     }
 
     printf( "\e[48;5;%dm %s%d \e[0m", i, s, i );
-    if( i % 10 == 9 ){
+    if( r == 9 ){
       puts( "" );
     }
   }
@@ -102,7 +101,7 @@ int printRGBColors(){
       printf(
         "\e[48;2;%d;%d;%dm \e[0m",
         (( i == 0 ) ? c : 0 ),
-        ((i == 1) ? c : 0 ),
+        (( i == 1 ) ? c : 0 ),
         (( i == 2 ) ? c : 0 )
       );
     }
@@ -115,7 +114,10 @@ int printRGBColors(){
 
 
 int main(){
+  puts( "------------------------------ 装飾 ------------------------------" );
   printDecorations();
+
+  puts( "------------------------------ 色 ------------------------------" );
   printBasicColors();
   print256Colors();
   printRGBColors();
