@@ -2,6 +2,7 @@ local basic = function()
   print( '【基本色】' )
 
   local output_str = '     '
+
   for i = 0, 7 do
     output_str = output_str ..  '   ' .. tostring( i ) .. ' '
   end
@@ -86,10 +87,9 @@ local extendRGB = function()
   for i = 1, 3 do
     local output_str = ""
 
-    for c = 255, 127, -2 do
+    for c = 255, 128, -2 do
       local rgb = { 0, 0, 0 }
       rgb[ i ] = c
-      local s = tostring( c )
 
       output_str = (
         output_str ..

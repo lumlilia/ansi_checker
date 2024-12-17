@@ -78,7 +78,6 @@ def extendRGB():
     for c in range( 255, 127, -2 ):
       rgb = [ 0, 0, 0 ]
       rgb[ i ] = c
-      s = str( c )
 
       output_str += (
         '\x1b[48;2;' +
