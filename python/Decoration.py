@@ -51,14 +51,14 @@ def decoration():
     }
   ]
 
-  for i in range( len( descriptions ) ):
-    num_str = str( descriptions[ i ][ 'num' ] )
+  for item in descriptions:
+    num_str = str( item[ 'num' ] )
     output_str += (
       num_str.ljust( 2, ' ' ) +
       ' [\x1b[' +
       num_str +
       'mexample\x1b[0m] : ' +
-      descriptions[ i ][ 'text' ] +
+      item[ 'text' ] +
       '\n'
     )
 
